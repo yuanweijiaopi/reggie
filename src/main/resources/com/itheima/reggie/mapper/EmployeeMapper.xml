@@ -6,15 +6,20 @@
 <mapper namespace="com.itheima.reggie.mapper.EmployeeMapper">
 
     <insert id="register">
-        INSERT INTO employee (username, password)
+        INSERT INTO reggie.employee
+            (username, password,
+             create_time,
+             update_time,
+             create_user,
+             update_user
+            )
         VALUES(
-        <if test="username != null and username != ''">
-            #{username}
-        </if>
-        <if test="password != null and password != ''">
-             #{password}
-        </if>
-
-)
+                  #{username},
+                  #{password},
+                  #{createTime},
+                  #{updateTime},
+                  #{createUser},
+                  #{updateUser}
+              )
     </insert>
 </mapper>
