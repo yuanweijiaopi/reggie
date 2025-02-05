@@ -9,7 +9,7 @@ package com.itheima.reggie.util;
  **/
 public class ThreadLocalUtil {
 
-    //提供ThreadLocal对象,
+    //提供ThreadLocal对象
     private static final ThreadLocal THREAD_LOCAL = new ThreadLocal();
 
     //根据键获取值

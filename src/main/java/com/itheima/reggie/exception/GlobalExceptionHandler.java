@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+
 /**
  * @ClassName GlobalExceptionHandler
  * @Description TODO
@@ -20,6 +22,14 @@ public class GlobalExceptionHandler {
     public R globalExceptionHandler(Exception e) {
 
         log.error("全局异常处理", e);
-        return R.error("");
+        return R.error(e.getMessage());
+    }
+
+    //异常处理方法
+    @ExceptionHandler(CustomException.class)
+    public R<String> exceptionHandler(CustomException e) {
+        log.error(e.getMessage(), e);
+
+        return R.error(e.getMessage());
     }
 }

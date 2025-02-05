@@ -30,7 +30,8 @@ public class JwtUtil {
      */
     public static String generateToken(Map<String, Object> claim) {
         String jwt = Jwts.builder()
-                .setSubject("user info").setClaims(claim)
+                .setSubject("user info")
+                .setClaims(claim)
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .setExpiration(DateUtil.offsetSecond(new Date(), EXPIRE_SECONDS))
                 .compact();

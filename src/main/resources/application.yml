@@ -1,5 +1,6 @@
 server:
-  port: 8084
+  port: 9048
+
 spring:
   application:
     #应用的名称，可选
